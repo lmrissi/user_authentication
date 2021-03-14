@@ -3,7 +3,7 @@ Candidato: Leonardo de Melo Rissi
 
 # Como rodar o projeto
 
-- No terminal, execute o comando
+- No terminal, execute o comando:
 ```
 docker-compose up --build
 ```
@@ -48,10 +48,14 @@ Além das views extendidas do django-allauth, foi implementada uma view própria
 
 As views de gerenciamento de e-mails, exclusão de usuários e logout só podem ser visualizadas por usuários que estão autenticados no sistema.
 
+O modelo de usuários padrão do django foi extendido para que fosse possível realizar personalizações. 
+
+No projeto a primary key do modelo User foi alterada para que fosse gerada a partir de um uuid.
+
 Para realização de testes foi utilizada a biblioteca pytest, que possibilita uma integraçao com o django através do pytest-django.
 
-Foram realizados testes para as views, modelos e admin verificando os possíveis casos de uso do sistema.
+Foram realizados testes para as views, modelos e admin, verificando os possíveis casos de uso do sistema.
 
 Os formulários que realizam requisições POST possuem o token CSRF.
 
-A Secret Key foi ocultado utilizando o python-decouple, para que este dado não esteja disponível para o público.
+A Secret Key foi ocultada utilizando o python-decouple, para que este dado não esteja disponível para o público.

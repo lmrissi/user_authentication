@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load account %}
+
+{% block title %}Sistema de autenticação de usuários{% endblock %}
+
+{% block content %}
+    {% if messages %}
+    {% for m in messages %}
+        <div class="alert alert-warning" role="alert">
+        {{ m }}
+        </div>
+    {% endfor %}
+    {% endif %}
+    {% if user.is_authenticated %}
+    <h2>Bem-vindo ao sistema de autenticação usuários {% user_display user %}!</h2>
+    <p>Email do usuário: {{ user.email }} </p>
+    <p>Senha criptografada: {{ user.password }} </p>
+    {% else %}
+    <h2>Bem-vindo ao sistema de autenticação usuários!
+    {% endif %}
+{% endblock %}

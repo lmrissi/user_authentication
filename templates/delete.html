@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load account %}
+{% load crispy_forms_tags %}
+
+{% block title %}Deletar{% endblock %}
+
+{% block content %}
+    {% if messages %}
+    {% for m in messages %}
+        <div class="alert alert-warning" role="alert">
+        {{ m }}
+        </div>
+    {% endfor %}
+    {% endif %}
+    <h2>Deletar usuário</h2>
+    <form method="post" action="{% url 'pages:delete_user' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        {% if user.is_authenticated %}
+        <label for="email">Digite o e-mail do usuário que deseja deletar</label> <br>
+        <input type="email" id="email" name="email"/> <br><br>
+        <button class="btn btn-success" type="submit">Deletar</button>
+        {% endif %}
+    </form>
+{% endblock %}
+
