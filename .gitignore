@@ -141,4 +141,4 @@ cython_debug/
 .vscode/
 
 # Python Decouple
-.env
+#.env
